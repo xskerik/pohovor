@@ -1,0 +1,25 @@
+version: "2"
+services: 
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: heslo
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - 5432:5432
+  av:
+    #debian: image: mkodockx/docker-clamav
+    image: mkodockx/docker-clamav:alpine
+    container_name: nextav
+    restart: unless-stopped
+    ports:
+      - 3310:3310
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+   # container_name: 'rabbitmq'
+    ports:
+        - 5672:5672
+        - 15672:15672
+

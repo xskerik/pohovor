@@ -1,0 +1,8 @@
+CREATE TABLE files (
+    id SERIAL PRIMARY KEY,
+    uploadId TEXT NOT NULL UNIQUE,
+    file_status TEXT NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    file_data OID NOT NULL,
+    checksum TEXT NOT NULL
+);
